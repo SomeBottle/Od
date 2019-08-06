@@ -12,10 +12,13 @@ if (!empty($link)) {
     if (stripos($link, 'sharepoint') !== false) { /*BusinessEdition*/
         $v = get_headers($link, 1) ['Location']; /*Get Locations*/
         $viewlink = ''; /*File view page link*/
+        $guestlink = '';
         if (is_array($v)) {
             foreach ($v as $i) {
                 if (stripos($i, 'onedrive.aspx') !== false) { /*抓取请求url及cid*/
                     $viewlink = $i;
+                } else {
+                    $guestlink = $i;
                 }
             }
         } else {
@@ -37,16 +40,20 @@ if (!empty($link)) {
             }
         }
         if (!empty($cid)) {
-            $file = $node . $data . '?cid=' . $cid;
+            if (!empty($guestlink)) {
+                $file = $guestlink . '&download=1';
+            } else {
+                $file = $node . $data . '?cid=' . $cid;
+            }
         } else {
             $file = $link . '&download=1'; /*没有cid，用下策*/
         }
     } else if (stripos($link, '1drv') !== false) { /*PersonalEdition*/
-	    $link=str_ireplace('ms','ws',$link);
+        $link = str_ireplace('ms', 'ws', $link);
         $file = get_headers($link, 1) ['Location']; /*Get Direct Link*/
-    }else{
-		echo 'Not an acceptable onedrive share url.';
-	}
+    } else {
+        echo 'Not an acceptable onedrive share url.';
+    }
     if ($jump) {
         header('Location: ' . $file);
     } else {
