@@ -3,7 +3,7 @@ A Simple php API to get onedrive direct link from its sharelink.
 
 ### Usage:  
  * Upload to your web server.  
- * Access the api via parameter:
+ * Access the api via browser with parameter:
    ```
    http(s)://xxx/od.php?l=<onedrive share link in base64 encoding>
    ```  
