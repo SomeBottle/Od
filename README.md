@@ -43,7 +43,7 @@ A Simple php API to get onedrive direct link from its sharelink.
   * Enjoy your privilege！  
   
 ### Necessary doc
-  * Please pay attention to the official limit -A- .
+  * Please pay attention to the official limit -A- .  
     [https://docs.microsoft.com/zh-cn/sharepoint/dev/general-development/how-to-avoid-getting-throttled-or-blocked-in-sharepoint-online](https://docs.microsoft.com/zh-cn/sharepoint/dev/general-development/how-to-avoid-getting-throttled-or-blocked-in-sharepoint-online)  
 
 ### Have fun!  
